@@ -106,7 +106,9 @@ export class NoteEditorComponent implements OnInit {
     this.onClose();
   }
 
+  @Output() close = new EventEmitter<void>();
+
   onClose(): void {
-    // Event will be handled by parent component
+    this.close.emit();
   }
 }
