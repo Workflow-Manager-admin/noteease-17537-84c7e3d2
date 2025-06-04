@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Note } from '../../models/note.model';
@@ -64,12 +64,15 @@ export class NoteListComponent implements OnInit {
     });
   }
 
+  @Output() addNote = new EventEmitter<void>();
+  @Output() editNote = new EventEmitter<Note>();
+
   onAddNote(): void {
-    // Event will be handled by parent component
+    this.addNote.emit();
   }
 
   onNoteClick(note: Note): void {
-    // Event will be handled by parent component
+    this.editNote.emit(note);
   }
 
   onDelete(id: string, event: Event): void {

@@ -28,3 +28,99 @@ Watch mode enabled. Watching for file changes...
 NOTE: Raw file sizes do not reflect development server per-request transformations.
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.17.0.2:3000/
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.709 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.369 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.005 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.237 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.234 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
