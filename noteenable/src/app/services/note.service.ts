@@ -11,24 +11,32 @@ export class NoteService {
   private notesSubject = new BehaviorSubject<Note[]>([]);
   private isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
     this.loadNotes();
   }
 
   private loadNotes(): void {
-    if (this.isBrowser) {
-      const savedNotes = localStorage.getItem('notes');
-      if (savedNotes) {
-        this.notes = JSON.parse(savedNotes);
-        this.notesSubject.next(this.notes);
+    if (this.isBrowser && typeof window !== 'undefined') {
+      try {
+        const savedNotes = window.localStorage.getItem('notes');
+        if (savedNotes) {
+          this.notes = JSON.parse(savedNotes);
+          this.notesSubject.next(this.notes);
+        }
+      } catch (error) {
+        console.error('Error loading notes:', error);
       }
     }
   }
 
   private saveToLocalStorage(): void {
-    if (this.isBrowser) {
-      localStorage.setItem('notes', JSON.stringify(this.notes));
+    if (this.isBrowser && typeof window !== 'undefined') {
+      try {
+        window.localStorage.setItem('notes', JSON.stringify(this.notes));
+      } catch (error) {
+        console.error('Error saving notes:', error);
+      }
     }
   }
 
