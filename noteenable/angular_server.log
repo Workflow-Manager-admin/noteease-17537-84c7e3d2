@@ -423,3 +423,21 @@ Application bundle generation failed. [0.152 seconds]
           ╵            ~~~~~~~~~~~~~
 
 
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.072 seconds]
+
+✘ [ERROR] TS2339: Property 'dialogService' does not exist on type 'NoteEditorComponent'. [plugin angular-compiler]
+
+    src/app/components/note-editor/note-editor.component.ts:113:11:
+      113 │       this.dialogService.alert('Please fill in both title and con...
+          ╵            ~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'dialogService' does not exist on type 'NoteEditorComponent'. [plugin angular-compiler]
+
+    src/app/components/note-editor/note-editor.component.ts:126:11:
+      126 │       this.dialogService.alert('Failed to save note. Please try a...
+          ╵            ~~~~~~~~~~~~~
+
+
