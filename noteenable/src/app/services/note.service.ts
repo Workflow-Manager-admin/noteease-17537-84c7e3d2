@@ -3,12 +3,6 @@ import { BehaviorSubject, Observable, map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { Note } from '../models/note.model';
 
-declare global {
-  interface Window {
-    localStorage: Storage;
-  }
-}
-
 @Injectable({
   providedIn: 'root'
 })
