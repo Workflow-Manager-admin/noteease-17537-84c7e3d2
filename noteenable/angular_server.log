@@ -1030,3 +1030,40 @@ Application bundle generation failed. [0.208 seconds]
          ╵   ~~~~~~~~~~~
 
 
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles     
+Initial chunk files  | Names            |  Raw size
+polyfills.js         | polyfills        |  90.20 kB | 
+main.js              | main             |  27.51 kB | 
+styles.css           | styles           | 604 bytes | 
+
+                     | Initial total    | 118.31 kB
+
+
+Server bundles      
+Initial chunk files  | Names            |  Raw size
+polyfills.server.mjs | polyfills.server | 572.91 kB | 
+chunk-4RLWBL4V.mjs   | -                |  27.95 kB | 
+server.mjs           | server           |   1.39 kB | 
+main.server.mjs      | main.server      | 800 bytes | 
+
+Application bundle generation complete. [0.258 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  27.48 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-32CYLFZW.mjs  | -           |  27.92 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.100 seconds]
+
+Page reload sent to client(s).

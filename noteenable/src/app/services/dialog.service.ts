@@ -12,17 +12,17 @@ export class DialogService {
   }
 
   confirm(message: string): boolean {
-    if (this.isBrowser && typeof window !== 'undefined') {
-      return window.confirm(message);
+    if (!this.isBrowser) {
+      return true;
     }
-    return true; // Default response for non-browser environments
+    return globalThis.window?.confirm?.(message) ?? true;
   }
 
   alert(message: string): void {
-    if (this.isBrowser && typeof window !== 'undefined') {
-      window.alert(message);
-    } else {
+    if (!this.isBrowser) {
       console.log('Alert:', message);
+      return;
     }
+    globalThis.window?.alert?.(message);
   }
 }

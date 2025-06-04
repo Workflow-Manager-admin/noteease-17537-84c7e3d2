@@ -46,20 +46,13 @@ export class NoteListComponent implements OnInit {
   filteredNotes: Note[] = [];
   searchQuery: string = '';
 
-  notes: Note[] = [];
-  filteredNotes: Note[] = [];
-  searchQuery: string = '';
-  noteService: NoteService;
-  dialogService: DialogService;
+  @Output() addNote = new EventEmitter<void>();
+  @Output() editNote = new EventEmitter<Note>();
 
   constructor(
-    noteService: NoteService,
-    dialogService: DialogService
-  ) {
-    this.noteService = noteService;
-    this.dialogService = dialogService;
-    this.loadNotes();
-  }
+    private noteService: NoteService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.loadNotes();
@@ -73,6 +66,7 @@ export class NoteListComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error loading notes:', error);
+        this.dialogService.alert('Failed to load notes. Please try again.');
       }
     });
   }
@@ -82,13 +76,16 @@ export class NoteListComponent implements OnInit {
       this.filteredNotes = this.notes;
       return;
     }
-    this.noteService.searchNotes(query).subscribe(notes => {
-      this.filteredNotes = notes;
+    this.noteService.searchNotes(query).subscribe({
+      next: (notes) => {
+        this.filteredNotes = notes;
+      },
+      error: (error) => {
+        console.error('Error searching notes:', error);
+        this.dialogService.alert('Failed to search notes. Please try again.');
+      }
     });
   }
-
-  @Output() addNote = new EventEmitter<void>();
-  @Output() editNote = new EventEmitter<Note>();
 
   onAddNote(): void {
     this.addNote.emit();
@@ -102,8 +99,6 @@ export class NoteListComponent implements OnInit {
     event.stopPropagation();
     if (this.dialogService.confirm('Are you sure you want to delete this note?')) {
       this.noteService.deleteNote(id);
-      // Refresh the notes list
-      this.loadNotes();
     }
   }
 }
