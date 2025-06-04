@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 import { Note } from '../models/note.model';
 
 @Injectable({
@@ -8,18 +9,27 @@ import { Note } from '../models/note.model';
 export class NoteService {
   private notes: Note[] = [];
   private notesSubject = new BehaviorSubject<Note[]>([]);
+  private isBrowser: boolean;
 
-  constructor() {
-    // Load notes from localStorage on initialization
-    const savedNotes = localStorage.getItem('notes');
-    if (savedNotes) {
-      this.notes = JSON.parse(savedNotes);
-      this.notesSubject.next(this.notes);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    this.loadNotes();
+  }
+
+  private loadNotes(): void {
+    if (this.isBrowser) {
+      const savedNotes = localStorage.getItem('notes');
+      if (savedNotes) {
+        this.notes = JSON.parse(savedNotes);
+        this.notesSubject.next(this.notes);
+      }
     }
   }
 
   private saveToLocalStorage(): void {
-    localStorage.setItem('notes', JSON.stringify(this.notes));
+    if (this.isBrowser) {
+      localStorage.setItem('notes', JSON.stringify(this.notes));
+    }
   }
 
   getNotes(): Observable<Note[]> {
