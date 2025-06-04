@@ -88,6 +88,10 @@ export class NoteListComponent implements OnInit {
 
   onDelete(id: string, event: Event): void {
     event.stopPropagation();
-    this.noteService.deleteNote(id);
+    if (confirm('Are you sure you want to delete this note?')) {
+      this.noteService.deleteNote(id);
+      // Refresh the notes list
+      this.loadNotes();
+    }
   }
 }

@@ -257,3 +257,49 @@ main.server.mjs      | main.server      | 800 bytes |
 
 Application bundle generation complete. [0.180 seconds]
 
+11:15:30 AM [vite] (ssr) ✨ new dependencies optimized: @angular/forms, rxjs
+11:15:30 AM [vite] (ssr) ✨ optimized dependencies changed. reloading
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  25.43 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-M2YORSBV.mjs  | -           |  25.86 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.236 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-VR6MGLEY.mjs  | -           |  25.86 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.373 seconds]
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles    
+Initial chunk files | Names       |  Raw size
+main.js             | main        |  25.52 kB | 
+
+
+Server bundles     
+Initial chunk files | Names       |  Raw size
+chunk-HFWUCSYA.mjs  | -           |  25.96 kB | 
+server.mjs          | server      |   1.39 kB | 
+main.server.mjs     | main.server | 800 bytes | 
+
+Application bundle generation complete. [0.171 seconds]
+
+Page reload sent to client(s).
