@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Note } from '../../models/note.model';
 import { NoteService } from '../../services/note.service';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-note-list',
@@ -45,7 +46,10 @@ export class NoteListComponent implements OnInit {
   filteredNotes: Note[] = [];
   searchQuery: string = '';
 
-  constructor(private noteService: NoteService) {
+  constructor(
+    private noteService: NoteService,
+    private dialogService: DialogService
+  ) {
     this.loadNotes();
   }
 
@@ -88,7 +92,7 @@ export class NoteListComponent implements OnInit {
 
   onDelete(id: string, event: Event): void {
     event.stopPropagation();
-    if (confirm('Are you sure you want to delete this note?')) {
+    if (this.dialogService.confirm('Are you sure you want to delete this note?')) {
       this.noteService.deleteNote(id);
       // Refresh the notes list
       this.loadNotes();
