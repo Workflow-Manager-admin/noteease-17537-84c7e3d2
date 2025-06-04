@@ -110,7 +110,7 @@ export class NoteEditorComponent implements OnInit {
 
   onSave(): void {
     if (!this.noteData.title || !this.noteData.content) {
-      alert('Please fill in both title and content');
+      this.dialogService.alert('Please fill in both title and content');
       return;
     }
 
@@ -123,7 +123,7 @@ export class NoteEditorComponent implements OnInit {
       this.onClose();
     } catch (error) {
       console.error('Error saving note:', error);
-      alert('Failed to save note. Please try again.');
+      this.dialogService.alert('Failed to save note. Please try again.');
     }
   }
 
