@@ -9,7 +9,7 @@ import { NoteService } from '../../services/note.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="editor-container">
+    <div class="editor-container" (click)="$event.stopPropagation()">
       <div class="editor-header">
         <h2>{{ isEditing ? 'Edit Note' : 'New Note' }}</h2>
         <button class="close-btn" (click)="onClose()">×</button>
@@ -67,12 +67,24 @@ export class NoteEditorComponent implements OnInit {
   };
   categoryInput: string = '';
 
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService) {
+    this.initializeNoteData();
+  }
 
   ngOnInit(): void {
+    this.initializeNoteData();
+  }
+
+  private initializeNoteData(): void {
     if (this.note) {
       this.isEditing = true;
       this.noteData = { ...this.note };
+    } else {
+      this.noteData = {
+        title: '',
+        content: '',
+        categories: []
+      };
     }
   }
 

@@ -180,3 +180,80 @@ Application bundle generation failed. [0.242 seconds]
          ╵                                  ~~~~~~
 
 
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.247 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.192 seconds]
+
+▲ [WARNING] TS-998113: RouterOutlet is not used within the template of AppComponent [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+✘ [ERROR] NG5: Argument of type 'Event' is not assignable to parameter of type 'Note'.
+  Type 'Event' is missing the following properties from type 'Note': id, title, content, categories, and 2 more. [plugin angular-compiler]
+
+    src/app/app.component.ts:21:33:
+      21 │           (editNote)="showEditor($event)"
+         ╵                                  ~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.207 seconds]
+
+✘ [ERROR] TS-991010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value is of type '[CommonModule, (not statically analyzable), NoteListComponent, NoteEditorComponent]'. [plugin angular-compiler]
+
+    src/app/app.component.ts:11:11:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2304: Cannot find name 'RouterOutlet'. [plugin angular-compiler]
+
+    src/app/app.component.ts:11:26:
+      11 │   imports: [CommonModule, RouterOutlet, NoteListComponent, NoteEdi...
+         ╵                           ~~~~~~~~~~~~
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles     
+Initial chunk files  | Names            |  Raw size
+polyfills.js         | polyfills        |  90.20 kB | 
+main.js              | main             |  25.22 kB | 
+styles.css           | styles           | 604 bytes | 
+
+                     | Initial total    | 116.02 kB
+
+
+Server bundles      
+Initial chunk files  | Names            |  Raw size
+polyfills.server.mjs | polyfills.server | 572.91 kB | 
+chunk-7TWDVBM3.mjs   | -                |  25.65 kB | 
+server.mjs           | server           |   1.39 kB | 
+main.server.mjs      | main.server      | 800 bytes | 
+
+Application bundle generation complete. [0.180 seconds]
+

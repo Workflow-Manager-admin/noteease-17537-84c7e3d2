@@ -45,12 +45,23 @@ export class NoteListComponent implements OnInit {
   filteredNotes: Note[] = [];
   searchQuery: string = '';
 
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService) {
+    this.loadNotes();
+  }
 
   ngOnInit(): void {
-    this.noteService.getNotes().subscribe(notes => {
-      this.notes = notes;
-      this.filteredNotes = notes;
+    this.loadNotes();
+  }
+
+  private loadNotes(): void {
+    this.noteService.getNotes().subscribe({
+      next: (notes) => {
+        this.notes = notes;
+        this.filteredNotes = notes;
+      },
+      error: (error) => {
+        console.error('Error loading notes:', error);
+      }
     });
   }
 
