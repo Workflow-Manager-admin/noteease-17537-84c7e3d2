@@ -46,10 +46,18 @@ export class NoteListComponent implements OnInit {
   filteredNotes: Note[] = [];
   searchQuery: string = '';
 
+  notes: Note[] = [];
+  filteredNotes: Note[] = [];
+  searchQuery: string = '';
+  noteService: NoteService;
+  dialogService: DialogService;
+
   constructor(
-    private noteService: NoteService,
-    private dialogService: DialogService
+    noteService: NoteService,
+    dialogService: DialogService
   ) {
+    this.noteService = noteService;
+    this.dialogService = dialogService;
     this.loadNotes();
   }
 
