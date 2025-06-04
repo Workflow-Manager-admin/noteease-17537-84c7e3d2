@@ -17,26 +17,30 @@ export class NoteService {
   }
 
   private loadNotes(): void {
-    if (this.isBrowser && typeof window !== 'undefined') {
-      try {
-        const savedNotes = window.localStorage.getItem('notes');
-        if (savedNotes) {
-          this.notes = JSON.parse(savedNotes);
-          this.notesSubject.next(this.notes);
-        }
-      } catch (error) {
-        console.error('Error loading notes:', error);
+    if (!this.isBrowser) {
+      return;
+    }
+
+    try {
+      const savedNotes = globalThis.window?.localStorage?.getItem('notes');
+      if (savedNotes) {
+        this.notes = JSON.parse(savedNotes);
+        this.notesSubject.next(this.notes);
       }
+    } catch (error) {
+      console.error('Error loading notes:', error);
     }
   }
 
   private saveToLocalStorage(): void {
-    if (this.isBrowser && typeof window !== 'undefined') {
-      try {
-        window.localStorage.setItem('notes', JSON.stringify(this.notes));
-      } catch (error) {
-        console.error('Error saving notes:', error);
-      }
+    if (!this.isBrowser) {
+      return;
+    }
+
+    try {
+      globalThis.window?.localStorage?.setItem('notes', JSON.stringify(this.notes));
+    } catch (error) {
+      console.error('Error saving notes:', error);
     }
   }
 
