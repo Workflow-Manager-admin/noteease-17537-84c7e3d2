@@ -59,6 +59,7 @@ import { DialogService } from '../../services/dialog.service';
 })
 export class NoteEditorComponent implements OnInit {
   @Input() note: Note | null = null;
+  @Output() close = new EventEmitter<void>();
 
   isEditing = false;
   noteData: Partial<Note> = {
@@ -68,9 +69,10 @@ export class NoteEditorComponent implements OnInit {
   };
   categoryInput: string = '';
 
-  constructor(private noteService: NoteService) {
-    this.initializeNoteData();
-  }
+  constructor(
+    private noteService: NoteService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.initializeNoteData();
@@ -126,8 +128,6 @@ export class NoteEditorComponent implements OnInit {
       this.dialogService.alert('Failed to save note. Please try again.');
     }
   }
-
-  @Output() close = new EventEmitter<void>();
 
   onClose(): void {
     this.close.emit();
