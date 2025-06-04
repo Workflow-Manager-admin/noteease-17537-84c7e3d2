@@ -1,0 +1,79 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Note } from '../../models/note.model';
+import { NoteService } from '../../services/note.service';
+
+@Component({
+  selector: 'app-note-list',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
+    <div class="note-list-container">
+      <div class="search-bar">
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (ngModelChange)="onSearch($event)"
+          placeholder="Search notes..."
+          class="search-input"
+        >
+      </div>
+
+      <div class="notes-grid">
+        @for (note of filteredNotes; track note.id) {
+          <div class="note-card" (click)="onNoteClick(note)">
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.content | slice:0:100 }}{{ note.content.length > 100 ? '...' : '' }}</p>
+            <div class="categories">
+              @for (category of note.categories; track category) {
+                <span class="category-tag">{{ category }}</span>
+              }
+            </div>
+            <button class="delete-btn" (click)="onDelete(note.id, $event)">Delete</button>
+          </div>
+        }
+      </div>
+
+      <button class="add-note-btn" (click)="onAddNote()">+</button>
+    </div>
+  `,
+  styleUrl: './note-list.component.css'
+})
+export class NoteListComponent implements OnInit {
+  notes: Note[] = [];
+  filteredNotes: Note[] = [];
+  searchQuery: string = '';
+
+  constructor(private noteService: NoteService) {}
+
+  ngOnInit(): void {
+    this.noteService.getNotes().subscribe(notes => {
+      this.notes = notes;
+      this.filteredNotes = notes;
+    });
+  }
+
+  onSearch(query: string): void {
+    if (!query.trim()) {
+      this.filteredNotes = this.notes;
+      return;
+    }
+    this.noteService.searchNotes(query).subscribe(notes => {
+      this.filteredNotes = notes;
+    });
+  }
+
+  onAddNote(): void {
+    // Event will be handled by parent component
+  }
+
+  onNoteClick(note: Note): void {
+    // Event will be handled by parent component
+  }
+
+  onDelete(id: string, event: Event): void {
+    event.stopPropagation();
+    this.noteService.deleteNote(id);
+  }
+}
