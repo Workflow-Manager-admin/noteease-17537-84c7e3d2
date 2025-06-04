@@ -108,14 +108,22 @@ export class NoteEditorComponent implements OnInit {
   }
 
   onSave(): void {
-    if (!this.noteData.title || !this.noteData.content) return;
-
-    if (this.isEditing && this.note) {
-      this.noteService.updateNote(this.note.id, this.noteData);
-    } else {
-      this.noteService.addNote(this.noteData as Omit<Note, 'id' | 'createdAt' | 'updatedAt'>);
+    if (!this.noteData.title || !this.noteData.content) {
+      alert('Please fill in both title and content');
+      return;
     }
-    this.onClose();
+
+    try {
+      if (this.isEditing && this.note) {
+        this.noteService.updateNote(this.note.id, this.noteData);
+      } else {
+        this.noteService.addNote(this.noteData as Omit<Note, 'id' | 'createdAt' | 'updatedAt'>);
+      }
+      this.onClose();
+    } catch (error) {
+      console.error('Error saving note:', error);
+      alert('Failed to save note. Please try again.');
+    }
   }
 
   @Output() close = new EventEmitter<void>();
